@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>오설록 프리미엄 녹차와플 | GREEN CRISP EDITORIAL</title>
+  <meta name="description" content="바삭한 식감과 깊은 녹차 풍미, 오설록 프리미엄 녹차와플을 소개합니다.">
+
+  <!-- ==========================================================
+       [수정 가이드] 스타일/스크립트 연결
+       - 색상, 폰트, 간격은 css/style.css 맨 위 :root 변수에서 바꿉니다.
+       - 동작(스크롤 효과, 장바구니 등)은 js/main.js 에서 바꿉니다.
+       ========================================================== -->
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <!-- ==========================================================
+       [1] 헤더 / 메뉴바
+       - 메뉴 추가/삭제: <li> 한 줄을 복사/삭제하세요.
+       - href 의 #id 는 아래 각 <section id="..."> 와 반드시 같아야 합니다.
+       - 로고 이미지를 쓰려면 .logo 안의 텍스트를 <img src="..."> 로 교체하세요.
+       ========================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="logo" href="#home" aria-label="오설록 녹차와플 홈">
+        <span class="logo-mark">osulloc</span>
+        <span class="logo-sub">Green Tea Waffle</span>
+      </a>
+
+      <nav class="gnb" id="gnb" aria-label="주 메뉴">
+        <ul>
+          <li><a href="#home" class="nav-link">메인페이지</a></li>
+          <li><a href="#products" class="nav-link">제품소개</a></li>
+          <li><a href="#features" class="nav-link">제품의 특징</a></li>
+          <li><a href="#teatime" class="nav-link">티타임 &amp; 디저트</a></li>
+          <li><a href="#buy" class="nav-link nav-buy">제품 구매하기</a></li>
+        </ul>
+      </nav>
+
+      <!-- 장바구니 버튼 (JS: 담은 수량 표시) -->
+      <button class="cart-btn" id="cartBtn" type="button" aria-label="장바구니 열기">
+        장바구니 <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <!-- 모바일 햄버거 버튼 (JS: 메뉴 열기/닫기) -->
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ==========================================================
+         [2] 메인페이지(히어로)
+         - 배경 이미지: .hero-bg 의 <img src> 교체 (패럴랙스 적용: data-speed 숫자가 클수록 많이 움직임)
+         - 제품 이미지: .hero-product 의 <img src> 교체
+         - 문구: .hero-title 안의 .line 을 한 줄씩 수정 (줄마다 아래→위 등장 애니메이션)
+         ========================================================== -->
+    <section class="hero" id="home">
+      <div class="hero-bg" data-parallax data-speed="0.25">
+        <img src="https://unsplash.com/photos/a-white-plate-topped-with-waffles-on-top-of-a-wooden-table-fD4kdzccKYc/download?force=true&w=1920"
+             alt="나무 테이블 위 접시에 담긴 와플" data-fallback="hero" loading="eager">
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-inner">
+        <p class="hero-kicker js-hero-line">GREEN CRISP EDITORIAL</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="line-inner">한 입의 바삭함,</span></span>
+          <span class="line"><span class="line-inner">깊어지는 녹차의 향</span></span>
+        </h1>
+        <p class="hero-desc js-hero-line">
+          오설록 프리미엄 녹차와플.<br>
+          얇고 바삭한 식감에 담긴 깊은 녹차의 풍미를 만나보세요.
+        </p>
+        <div class="hero-actions js-hero-line">
+          <a class="btn btn-primary" href="#buy">지금 구매하기</a>
+          <a class="btn btn-ghost" href="#products">제품 둘러보기</a>
+        </div>
+      </div>
+
+      <!-- 제품 패키지 이미지 (이미지 교체 가능) -->
+      <figure class="hero-product" data-parallax data-speed="-0.08">
+        <img src="imgs/오설록 녹차와플 프리미엄 제품 사진.png"
+             alt="오설록 녹차와플 제품 이미지" data-fallback="product">
+      </figure>
+
+      <a class="scroll-hint" href="#products" aria-label="아래로 스크롤">scroll</a>
+    </section>
+
+    <!-- ==========================================================
+         [3] 3단 이미지 레이아웃 (브랜드 무드)
+         - 이미지 3장: <img src> 만 바꾸면 됩니다.
+         - 캡션: <figcaption> 수정
+         ========================================================== -->
+    <section class="triple section" id="mood">
+      <div class="container">
+        <div class="triple-grid">
+          <figure class="triple-item reveal">
+            <div class="zoom-box">
+              <img src="imgs/抹茶 와플 쿠키와 바삭한 부스러기.png"
+                   alt="바삭하게 구운 와플" data-fallback="a" loading="lazy">
+            </div>
+            <figcaption>바삭한 결</figcaption>
+          </figure>
+          <figure class="triple-item reveal" data-delay="120">
+            <div class="zoom-box">
+              <img src="imgs/말차 와플 크리스프와 버터 큐브.png"
+                   alt="아이스 녹차 음료" data-fallback="b" loading="lazy">
+            </div>
+            <figcaption>고소한 버터, 진한 녹차</figcaption>
+          </figure>
+          <figure class="triple-item reveal" data-delay="240">
+            <div class="zoom-box">
+              <img src="imgs/무드보드3.png"
+                   alt="접시에 담긴 와플 디저트" data-fallback="c" loading="lazy">
+            </div>
+            <figcaption>한 접시의 디저트</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         [4] 제품소개
+         - 탭(JS): 버튼의 data-tab 값과 패널의 id 가 같아야 연결됩니다.
+         - 제품 추가: 탭 버튼 1개 + 패널 1개를 복사해서 값만 바꾸세요.
+         - 가격/이름은 [8] 구매 섹션의 data-price / data-name 과 맞춰주세요.
+         ========================================================== -->
+    <section class="products section" id="products">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2>제품소개</h2>
+          <p>세 가지 구성으로 오설록 녹차와플을 만나보세요.</p>
+        </header>
+
+        <div class="tabs reveal" role="tablist" aria-label="제품 선택">
+          <button class="tab is-active" role="tab" type="button" data-tab="tab-single" aria-selected="true">낱개 와플</button>
+          <button class="tab" role="tab" type="button" data-tab="tab-box" aria-selected="false">티타임 박스</button>
+          <button class="tab" role="tab" type="button" data-tab="tab-gift" aria-selected="false">선물 세트</button>
+        </div>
+
+        <div class="tab-panels">
+          <article class="tab-panel is-active" id="tab-single" role="tabpanel">
+            <div class="zoom-box panel-img">
+              <img src="imgs/무드보드4-1.png"
+                   alt="낱개 녹차와플" data-fallback="p1" loading="lazy">
+            </div>
+            <div class="panel-text">
+              <h3>프리미엄 녹차와플 (단품)</h3>
+              <p>제주산 말차의 깊은 풍미와 고소한 버터 향이 어우러진 프리미엄 티푸드.<br>
+
+진한 녹차의 향과 바삭한 식감을 한 입에 즐겨보세요.</p>
+              <ul class="spec">
+                <li><span>구성</span>프리미엄녹차와플 1BOX</li>
+                <li><span>추천</span>차와 함께 즐기는 프리미엄 디저트</li>
+              </ul>
+              <a class="btn btn-primary" href="#buy">구매하기</a>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="tab-box" role="tabpanel" hidden>
+            <div class="zoom-box panel-img">
+              <img src="imgs/얇고 바삭한 말차 와플 디저트 세트.png"
+                   alt="티타임 박스" data-fallback="p2" loading="lazy">
+            </div>
+            <div class="panel-text">
+              <h3>티타임 박스 (그린티 티푸드 트리오)</h3>
+              <p>녹차의 깊은 풍미와 고소한 버터의 향,<br> 부드럽고 바삭한 식감을 한 번에 즐기는 티푸드 구성.</p>
+              <ul class="spec">
+                <li><span>구성</span>프리미엄 녹차와플 · 녹차 밀크 스프레드 · 그린티 랑드샤</li>
+                <li><span>추천</span>차와 함께하는 여유로운 티타임 · 특별한 디저트 선물</li>
+              </ul>
+              <a class="btn btn-primary" href="#buy">구매하기</a>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="tab-gift" role="tabpanel" hidden>
+            <div class="zoom-box panel-img">
+              <img src="imgs/오설록 프리미엄 녹차 선물세트.png"
+                   alt="선물 세트" data-fallback="p3" loading="lazy">
+            </div>
+            <div class="panel-text">
+              <h3>프리미엄 티푸드 선물 세트</h3>
+              <p>바삭한 녹차와플과 향긋한 오설록 티를 함께 담은 특별한 구성.<br>
+소중한 사람에게 깊은 차의 풍미와 달콤한 티타임을 선물하세요.</p>
+              <ul class="spec">
+                <li><span>구성</span>녹차와플 + 오설록 티 세트</li>
+                <li><span>추천</span>기념일 선물, 감사 선물, 특별한 티타임</li>
+              </ul>
+              <a class="btn btn-primary" href="#buy">구매하기</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         [5] 제품의 특징
+         - 특징 카드: <li class="feature"> 한 개가 한 칸입니다. 복사해서 추가하세요.
+         - 숫자 카운트업(JS): data-count 에 목표 숫자, data-suffix 에 단위를 적습니다.
+         ========================================================== -->
+    <section class="features section" id="features">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2>제품의 특징</h2>
+          <p>한 입에 담긴 세 가지 매력</p>
+        </header>
+
+        <ul class="feature-list">
+          <li class="feature reveal">
+            <h3>01. 바삭한 식감</h3>
+            <p>얇게 구워낸 와플의 바삭한 결, 입안에서 가볍게 부서지는 즐거움.</p>
+          </li>
+          <li class="feature reveal" data-delay="120">
+            <h3>02. 깊은 녹차 풍미</h3>
+            <p>제주 녹차의 은은한 향과 고소한 버터의 풍미가 어우러진 특별한 한 입.</p>
+          </li>
+          <li class="feature reveal" data-delay="240">
+            <h3>03. 간편한 티타임</h3>
+            <p>개별 포장으로 언제 어디서나 즐기는 여유로운 티타임.</p>
+          </li>
+        </ul>
+
+        <!-- 숫자 카운트업: 실제 수치로 교체하세요 (현재는 예시 수치입니다) -->
+        <div class="stats reveal">
+          <div class="stat"><strong>제주</strong><span>녹차의 깊은 풍미</span></div>
+          <div class="stat"><strong>바삭</strong><span>얇게 구워낸 식감</span></div>
+          <div class="stat"><strong>언제나</strong><span>간편한 티타임</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         [6] 티타임 & 디저트 (슬라이더)
+         - 슬라이드 추가: <li class="slide"> 를 복사하세요. 점(dot)은 JS가 자동 생성합니다.
+         - 자동 재생 시간: js/main.js 의 SLIDE_INTERVAL 값 (ms)
+         ========================================================== -->
+    <section class="teatime section" id="teatime">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2>티타임 &amp; 디저트</h2>
+          <p>바삭한 녹차와플, 향긋한 차 한 잔으로 완성하는 달콤한 순간.</p>
+        </header>
+
+        <div class="slider reveal" id="slider" aria-roledescription="carousel">
+          <ul class="slides" id="slides">
+            <li class="slide">
+              <div class="zoom-box">
+                <img src="imgs/따뜻한 햇살의 프리미엄 녹차 와플 티타임.png"
+                     alt="오후의 티타임" data-fallback="s1" loading="lazy">
+              </div>
+              <div class="slide-text">
+                <h3>오후의 티타임</h3>
+                <p>따뜻한 녹차 한 잔과 바삭한 녹차와플.
+여유로운 오후를 더욱 향긋하게 채워보세요.</p>
+              </div>
+            </li>
+            <li class="slide">
+              <div class="zoom-box">
+                <img src="imgs/오설록 프리미엄 녹차와플과 아이스티.png"
+                     alt="아이스 녹차와 와플" data-fallback="s2" loading="lazy">
+              </div>
+              <div class="slide-text">
+                <h3>여름엔 아이스로</h3>
+                <p>시원한 아이스 녹차와 바삭한 녹차와플.
+청량함과 고소함이 어우러지는 여름의 티타임.</p>
+              </div>
+            </li>
+            <li class="slide">
+              <div class="zoom-box">
+                <img src="imgs/오설록 녹차 와플과 아이스크림 디저트.png"
+                     alt="디저트 플레이팅" data-fallback="s3" loading="lazy">
+              </div>
+              <div class="slide-text">
+                <h3>디저트로 완성</h3>
+                <p>아이스크림과 상큼한 과일을 곁들여 보세요.
+바삭한 녹차와플이 특별한 디저트로 완성됩니다.</p>
+              </div>
+            </li>
+          </ul>
+
+          <button class="slider-btn prev" id="slidePrev" type="button" aria-label="이전 슬라이드">‹</button>
+          <button class="slider-btn next" id="slideNext" type="button" aria-label="다음 슬라이드">›</button>
+          <div class="dots" id="dots" role="tablist" aria-label="슬라이드 선택"></div>
+        </div>
+
+      
+    
+<!-- 멀티미디어(영상) 영역: 유튜브 등 임베드 주소로 교체 가능.
+             src 의 VIDEO_ID 부분만 바꾸세요. 영상이 필요 없으면 이 <div> 전체를 삭제하세요. -->
+        <div class="video-wrap reveal">
+          <h3>브랜드 영상</h3>
+          <div class="video-box">
+            <div class="video-box">
+  <div class="video-blur-bg">
+    <iframe width="478" height="849" src="https://www.youtube.com/embed/6AQTtBN2WoM" title="오설록ai광고영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <div class="video-main">
+    <iframe width="478" height="849" src="https://www.youtube.com/embed/6AQTtBN2WoM" title="오설록ai광고영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+
+          </div>
+          <p class="note">※ 위 영상 주소의 VIDEO_ID를 실제 유튜브 영상 ID로 바꾸면 재생됩니다.</p>
+        </div>
+      </div>
+    </section>
+
+    </section>
+
+    <!-- ==========================================================
+         [7] 제품 구매하기
+         - 상품 추가: <li class="buy-item"> 를 복사하고 data-id(중복 금지), data-name, data-price 수정.
+         - 가격 단위는 원(숫자만 입력). 수량 증감/합계/장바구니는 JS가 처리합니다.
+         - 실제 결제 연동은 js/main.js 의 checkout() 함수에서 연결하세요.
+         ========================================================== -->
+    <section class="buy section" id="buy">
+      <div class="container">
+        <header class="section-head reveal">
+          <h2>CRISPY GREEN EDITION</h2>
+          <p>바삭함을 담다, 녹차의 순간.</p>
+        </header>
+
+        <ul class="buy-list">
+          <li class="buy-item reveal" data-id="single" data-name="녹차와플 (1입)" data-price="5100">
+            <div class="zoom-box">
+              <img src="imgs/무드보드4-1.png"
+                   alt="프리미엄녹차와플 1BOX" data-fallback="b1" loading="lazy">
+            </div>
+            <h3>프리미엄녹차와플 1BOX</h3>
+            <p class="price">
+  <span class="original-price">6,000원</span>
+  <span class="discount-rate">15%</span>
+  <span class="price-num">5,100</span>원
+</p>
+            <div class="qty" aria-label="수량 선택">
+              <button type="button" class="qty-minus" aria-label="수량 감소">−</button>
+              <input type="number" class="qty-input" value="1" min="1" max="99" aria-label="수량">
+              <button type="button" class="qty-plus" aria-label="수량 증가">＋</button>
+            </div>
+            <p class="subtotal">합계 <strong>5,100</strong>원</p>
+            <button type="button" class="btn btn-primary add-cart">장바구니 담기</button>
+          </li>
+
+          <li class="buy-item reveal" data-delay="120" data-id="box" data-name="티타임 박스 (그린티 티푸드 트리오)" data-price="23250">
+            <div class="zoom-box">
+              <img src="imgs/얇고 바삭한 말차 와플 디저트 세트.png"
+                   alt="티타임 박스 (그린티 티푸드 트리오)" data-fallback="b2" loading="lazy">
+            </div>
+            <h3>티타임 박스 (그린티 티푸드 트리오)</h3>
+            <p class="price"><span class="original-price">31,000원</span>
+  <span class="discount-rate">25%</span>
+  <span class="price-num">23,250</span>원
+</p>
+            <div class="qty" aria-label="수량 선택">
+              <button type="button" class="qty-minus" aria-label="수량 감소">−</button>
+              <input type="number" class="qty-input" value="1" min="1" max="99" aria-label="수량">
+              <button type="button" class="qty-plus" aria-label="수량 증가">＋</button>
+            </div>
+            <p class="subtotal">합계 <strong>23,250</strong>원</p>
+            <button type="button" class="btn btn-primary add-cart">장바구니 담기</button>
+          </li>
+
+          <li class="buy-item reveal" data-delay="240" data-id="gift" data-name="와플 베스트 티 4종 세트" data-price="26145">
+            <div class="zoom-box">
+              <img src="imgs/오설록 프리미엄 녹차 선물세트.png"
+                   alt="와플 베스트 티 4종 세트" data-fallback="b3" loading="lazy">
+            </div>
+            <h3>와플 베스트 티 4종 세트</h3>
+            <p class="price">  <span class="original-price">31,500원</span>
+  <span class="discount-rate">17%</span>
+  <span class="price-num">26,145</span>원
+</p>
+            <div class="qty" aria-label="수량 선택">
+              <button type="button" class="qty-minus" aria-label="수량 감소">−</button>
+              <input type="number" class="qty-input" value="1" min="1" max="99" aria-label="수량">
+              <button type="button" class="qty-plus" aria-label="수량 증가">＋</button>
+            </div>
+            <p class="subtotal">합계 <strong>26,145</strong>원</p>
+            <button type="button" class="btn btn-primary add-cart">장바구니 담기</button>
+          </li>
+        </ul>
+        <p class="note">바삭한 녹차의 순간, 오설록</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================
+       [8] 푸터
+       - 회사 정보/링크는 아래 텍스트를 직접 수정하세요.
+       ========================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p class="footer-logo">OSULLOC GREEN TEA WAFFLE</p>
+        <p class="footer-text">일상의 순간을 더욱 향긋하게, 오설록<br>"본 페이지는 오설록 프리미엄 녹차와플의 웹사이트 제작 실습 프로젝트입니다."</p>
+      </div>
+      <p class="footer-copy">© 2026 Green Crisp Editorial. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================
+       [9] 장바구니 패널 (JS에서 열고 닫으며 목록을 채웁니다)
+       - 구조(id)를 바꾸면 JS가 동작하지 않으니 id는 유지하세요.
+       ========================================================== -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart-panel" id="cartPanel" aria-label="장바구니" aria-hidden="true">
+    <div class="cart-head">
+      <h2>장바구니</h2>
+      <button type="button" id="cartClose" aria-label="장바구니 닫기">×</button>
+    </div>
+    <ul class="cart-items" id="cartItems"></ul>
+    <p class="cart-empty" id="cartEmpty">담긴 상품이 없습니다.</p>
+    <div class="cart-foot">
+      <p class="cart-total">총 결제금액 <strong id="cartTotal">0</strong>원</p>
+      <button type="button" class="btn btn-primary" id="checkoutBtn">주문하기</button>
+    </div>
+  </aside>
+
+  <!-- 알림 메시지(토스트) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- 맨 위로 버튼 -->
+  <button type="button" class="to-top" id="toTop" aria-label="맨 위로">↑</button>
+
+</body>
+</html>
